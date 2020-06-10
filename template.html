@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Stuffy
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130720
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Stuffyby FCT</title>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Archivo+Narrow:400,700" rel="stylesheet" type="text/css">
+<script src="cookiemanager.js" ></script>
+<script src="catalog.js" ></script>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="cookiemanager.js" ></script>
+  <script src="catalog.js" ></script>
+
+<script>
+ function delete2(code)
+  {
+	  let x=new ShoppingCart('user');
+	  x.setNumOrdered(code,0); 
+	  //x.storeCart();
+	  location.reload();
+  }
+  function update(code)
+  {
+	var name=code+"qty";
+	value=parseInt(document.getElementById(name).value);
+	let x=new ShoppingCart('user');
+	x.setNumOrdered(code,value);
+	//x.storeCart();
+	location.reload();
+  }
+  function createCart()
+  {  
+	var flag2=false;
+	var total=0;
+	var str="<table>";
+	str+="<tr><th colspan='2'>NAME</th><th>QUANTITY</th><th>PRICE</th><th>SUBTOTAL</th>";
+	let x=new ShoppingCart('user');
+	let items=x.getItemsOrdered();
+	for(let i=0;i<items.length;i++)
+	{
+		let qty		=items[i].getNumItems();	
+		if(qty !=null)
+		{	
+			var name=items[i].getItemCode()+"qty";
+			var image=items[i].getItemImage();
+			
+			str+="<tr>";
+			str+="<td style='text-align:left'>"+"<img width='100px' src='"+image+"' />"+"</td>";
+			str+="<td style='text-align:left'>"+items[i].getItemName()+"</td>";
+			str+="<td style='text-align:right'>"+"<input id='"+name+"'type='text' value='"+qty+"' />"+
+			"<input id='"+items[i].getItemCode()+"' type='button' value='update' onclick='update(this.id);' />"+
+			"<img src='x.png' width='20px;' onclick=delete2('"+items[i].getItemCode()+"') /></td>";
+			str+="<td style='text-align:right'>$"+items[i].getUnitCost()+"</td>";
+			str+="<td style='text-align:right'>$"+items[i].getTotalCost()+"</td>";
+			str+="</tr>";
+			flag2=true;
+		}		
+	}
+	str+="<tr><td colspan='4' style='text-align:left'>TOTAL</td><td style='text-align:right'>$"+x.getTotalCost()+"</td></tr>";
+	str+="</table>";
+	if(flag2)
+	{
+		document.getElementById("info").innerHTML=str;
+		document.getElementById("info2").innerHTML="<a href='shipping.html'>Shipping Next</a>";
+	}
+	else 
+	{
+		document.getElementById("info").innerHTML="<h1>EMPTY CART<br><a href='products.html'>Go Back Shopping</a></h1>";
+	}	
+  }	
+</script>
+</head>
+<body onload="createCart()">
+	<div id='info'></div>
+<div id='info2'></div>
+	
+<div id="menu-wrapper">
+	<div id="menu">
+		<ul>
+			<li><a href="#">Login</a></li>
+			<li><a href="#">Products</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</div>
+	<!-- end #menu --> 
+</div>
+<div id="header-wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">Stuffy</a></h1>
+			<p>Template design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a></p>
+		</div>
+	</div>
+</div>
+<div id="wrapper"> 
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				
+				
+				ITEM1:<script>var c=new Catalog();document.writeln("<img src='"+(c.getItem('lguhdtv')).image+"' width='200px'></img>"+c.products[0].name) ; </script> 
+<input type="button" value="addToCart" onclick="let x=new ShoppingCart('user');x.addItem('lguhdtv');alert('LGTV added to cart ...');" />
+
+<BR />
+ITEM2: <script>var c=new Catalog();document.writeln("<img src='"+(c.getItem('sony4ktv')).image+"' width='200px'></img>"+c.products[1].name); </script> 
+<input type="button" value="addToCart" onclick="let x=new ShoppingCart('user');x.addItem('sony4ktv');alert('SONYTV added to cart ...');" />
+<BR />
+<a href="cart.html">View Cart</a>
+
+
+				
+				
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page --> 
+</div>
+<div id="footer">
+	<p>&copy; 2013 Sitename.com. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

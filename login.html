@@ -1,0 +1,93 @@
+<html>
+<head>
+  <title>CIS385 PROJECT SAMPLE</title>
+  <link rel="stylesheet" type="text/css" href="login/login/login/style.css" />
+   <link rel="stylesheet" type="text/css" href="login/login/login/style2.css" />
+   <script src="cookiemanager.js"></script>
+ 
+	<script>
+	function login()
+	{
+		username=document.getElementById("username").value;
+		password=document.getElementById("password").value;
+		pass=getCookie(username);
+
+		if (pass == null) alert("User Does not Exit");
+		else
+		{
+			if(pass == password)
+			{
+				setCookie("flag","true",30);
+				setCookie("whoami",username,30);
+				location.href="product.html";
+			}
+			else alert("password is incorrect");
+		}
+	}
+	</script>
+	
+</head>
+
+<body>
+<div id="content" class="contentSection"> 	
+<span id="menu">
+<table width="100%" align=center>
+<tr>
+  <td align=center>Welcome to cis385 Electronics</td>
+</tr>
+</table>
+</span>
+<span id="menu">
+<table align=center>
+<tr>
+	 <script src="menu.js"></script>  
+	 <ul class="navbar-nav mr-auto">
+		<li class="nav-item ">
+			<a class="nav-link" href="login.html">Log In <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item active">
+			<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item  ">
+			<a class="nav-link" href="product.html">Products <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item ">
+			<a class="nav-link" href="about.html">About Us <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item ">
+			<a class="nav-link" href="Contact_us.html">Contact Us<span class="sr-only">(current)</span></a>
+		</li>
+			<li class="nav-item ">
+				<a class="nav-link" href="cart.html">Cart <span class="sr-only">(current)</span></a>
+		</li>
+		</li>
+	</ul>
+</tr>
+</table>
+</span>
+</div>
+<div id="content" class="contentSection"> 
+<form>
+  <table align=center>
+    <tr>
+      <td width="100">Username:</td>
+      <td width="150" align="center"><input type="text" id="username"></td>
+    </tr>
+    <tr>
+      <td width="100">Password:</td>
+      <td width="150" align="center">
+			<input type="password" id="password"><br>
+			<a href="registration.html">Register</a>
+      </td>
+    </tr>
+    <tr>
+      <td width="100">&nbsp;</td>
+      <td width="150" align="center"><input type="button" value="Login"
+		onclick="login();"
+	  ></td>
+    </tr>
+  </table>
+  </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<html>
+<head>
+  <title>CIS385 PROJECT</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+   <link rel="stylesheet" type="text/css" href="style2.css" />
+   <script src="cookiemanager.js" ></script>
+   <script>
+	  function registration()
+	  {
+		 username=document.getElementById("username").value;
+		 password=document.getElementById("password").value;
+		 password2=document.getElementById("password2").value;
+		 if(getCookie(username) != null )
+		 {
+				alert("Username already taken..");
+		 }
+		 else
+		 if(password==password2)
+		 {
+			setCookie(username,password,30);
+			alert("Thank you for your registration..");
+			location.href="login.html"
+		 }
+		 else {
+		    alert("Passwords do not match");
+		 }
+		 //alert(username+":"+password+":"+password2);
+	  }
+   </script>
+</head>
+<body>
+<div id="content" class="contentSection"> 	
+<span id="menu">
+<table width="100%" align=center>
+<tr>
+  <td align=center>Welcome to cis385 Electronics</td>
+</tr>
+</table>
+</span>
+<span id="menu">
+<table align=center>
+<tr>
+	<ul class="navbar-nav mr-auto">
+		<li class="nav-item ">
+			<a class="nav-link" href="login.html">Log In <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item active">
+			<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item  ">
+			<a class="nav-link" href="product.html">Products <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item ">
+			<a class="nav-link" href="about.html">About Us <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item ">
+			<a class="nav-link" href="Contact_us.html">Contact Us<span class="sr-only">(current)</span></a>
+		</li>
+			<li class="nav-item ">
+				<a class="nav-link" href="cart.html">Cart <span class="sr-only">(current)</span></a>
+		</li>
+		</li>
+	</ul>
+</tr>
+</table>
+</span>
+</div>
+<div id="content" class="contentSection"> 
+<form>
+  <table align=center>
+    <tr>
+      <td width="100">Username:</td>
+      <td width="150" align="center"><input type="text" id="username"></td>
+    </tr>
+    <tr>
+      <td width="100">Password:</td>
+      <td width="150" align="center"><input type="password" id="password"></td>
+    </tr>
+     <tr>
+      <td width="100">Re-Type Password:</td>
+      <td width="150" align="center"><input type="password" id="password2"></td>
+    </tr>
+    <tr>
+      <td width="100">&nbsp;</td>
+      <td width="150" align="center"><input type="button" value="Enter"
+		onclick="registration()"
+	  ><input type="button" value="Clear"></td>
+    </tr>
+  </table>
+  </form>
+  </div>
+</body>
+</html>

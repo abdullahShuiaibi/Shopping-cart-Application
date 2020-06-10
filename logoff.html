@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title>CIS385 PROJECT</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+   <link rel="stylesheet" type="text/css" href="style2.css" />
+   
+   <script src="cookiemanager.js" ></script>
+   <script src="validation.js"></script>
+   <script>
+	function logoff()
+	{
+		setCookie("flag","",-1);
+		setCookie("whoami","",-1);
+		location.href="login.html";
+	}
+   </script>
+   
+</head>
+<body>
+<div id="content" class="contentSection"> 	
+<span id="menu">
+<table width="100%" align=center>
+<tr>
+  <td align=center>Welcome to cis385 Electronics</td>
+</tr>
+</table>
+</span>
+<span id="menu">
+<table align=center>
+<tr>
+	 <script src="menu.js"></script>   
+    <td width='100' align=center><a href='about.html'>About</a></td>  
+    <td width='100' align=center><a href='products.html'>Product List</a></td>	
+    <td width='100' align=center><a href='contact.html'>Contact Us</a></td>
+</tr>
+</table>
+</span>
+</div>
+<div id="content" class="contentSection"> 
+<form>
+   <center> <input type="button" value="Logoff" onclick="logoff()"> </center>
+</form>
+  </div>
+</body>
+</html>
